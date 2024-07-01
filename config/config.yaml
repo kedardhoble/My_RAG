@@ -1,0 +1,3 @@
+data_path: "data/documents"
+retriever_model: "path/to/retriever/model"
+generator_model: "path/to/generator/model"
