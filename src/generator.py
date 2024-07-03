@@ -7,4 +7,9 @@ class ResponseGenerator:
 
     def generate(self, query, documents):
         # Code to generate a response based on the query and retrieved documents
-        pass
+        context = " ".join(documents)
+        inputs = self.tokenizer(query + self.tokenizer.sep_token + context, return_tensors='pt', truncation=True, max_length=512)
+        outputs = self.model.generate(**inputs)
+        response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+        return response
