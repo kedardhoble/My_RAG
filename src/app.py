@@ -9,6 +9,7 @@ app = Flask(__name__)
 with open('config/config.yaml', 'r') as file:
     config = yaml.safe_load(file)
 
+#decine retriever and generator
 retriever = DocumentRetriever(config['retriever_model'], config['data_path'])
 generator = ResponseGenerator(config['generator_model'])
 
